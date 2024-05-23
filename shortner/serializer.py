@@ -5,4 +5,4 @@ from shortner.models import UrlDB
 class UrlDBSerializer(serializers.ModelSerializer):
     class Meta:
         model = UrlDB
-        fields = ['id', 'short_url', 'resource_url']
+        fields = ['short_id', 'resource_url']
