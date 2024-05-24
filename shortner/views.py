@@ -10,7 +10,17 @@ class ShortenUrlView(APIView):
         serializer = UrlDBSerializer(data=request.data)
         
         if serializer.is_valid():
-            short_id = uuid.uuid4()
+            flag = True
+            short_id = ""
+            while flag:
+                short = uuid.uuid4()
+                short_id = str(short).replace('-','')[:6]
+                print(short_id)
+                try:
+                    UrlDB.objects.get(short_id = short_id)
+                except:
+                    flag = False
+            # print(short_id)
             serializer.save(short_id=short_id)
             return Response({"short_id": short_id}, status=status.HTTP_201_CREATED)
         
