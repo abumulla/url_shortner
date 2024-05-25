@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <link rel="stylesheet" href="../static/css/feedback.css">
+</head>
+<body>
+    <div class="feedback-container">
+        <h1>Feedback</h1>
+        <form id="feedbackForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="comments">Feedback:</label>
+            <textarea id="comments" name="comments" placeholder="Enter your feedback: max 2000 characters" maxlength="2000" required></textarea>
+            <button type="submit">Submit Feedback</button>
+        </form>
+    </div>
+    <script src="../static/js/feedback.js"></script>
+</body>
+</html>
