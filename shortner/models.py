@@ -8,3 +8,11 @@ class UrlDB(models.Model):
 
     def __str__(self):
         return f"{self.short_id} -> {self.resource_url}"
+    
+class Feedback(models.Model):
+    name = models.CharField(max_length=300)
+    email = models.EmailField()
+    feedback = models.CharField(max_length=2000)
+
+    def __str__(self):
+        return f"{self.name} => {self.email}"

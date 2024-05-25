@@ -12,3 +12,6 @@ def redir(request, short_id):
     url_instance = get_object_or_404(UrlDB, short_id=short_id)
     print(url_instance)
     return redirect(url_instance.resource_url)
+
+def feedback(request):
+    return render(request, "feedback.html")
