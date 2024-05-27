@@ -3,7 +3,7 @@ document.getElementById('feedbackForm').addEventListener('submit', async functio
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const feedbacks = document.getElementById('comments').value;
-    alert("Your feedback has been sent")
+    alert("Feedback has been sent")
     this.reset();
     try {
         const response = await fetch('/api/feedback', {
@@ -21,10 +21,10 @@ document.getElementById('feedbackForm').addEventListener('submit', async functio
         const data = await response.json();
 
         if (response.ok){
-            console.log(data.message);
+            alert(data.message);
         }
         else{
-            console.error('Error:'+response.statusText+"\n"+data.message);
+            alert('Error:'+response.statusText+"\n"+data.message);
         }
 
     } catch (error) {

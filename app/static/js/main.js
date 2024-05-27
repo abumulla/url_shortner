@@ -25,8 +25,26 @@ document.getElementById('urlForm').addEventListener('submit', async function(eve
 
 function displayResult(short_id) {
     const resultDiv = document.getElementById('result');
-    
-    resultDiv.innerHTML = `Shortened URL: <a href="http://localhost:8000/${short_id}" target="_blank">http://localhost:8000/${short_id}</a>`;
+    const shortUrlSpan = document.getElementById('shortUrl');
+    const shortUrl = `http://localhost:8000/${short_id}`;
+
+    shortUrlSpan.innerHTML = `Shortened URL: <a href="${shortUrl}" target="_blank">${shortUrl}</a>`;
 
     resultDiv.style.display = 'block';
+
+    document.getElementById('copyButton').addEventListener('click', function() {
+        copyToClipboard(shortUrl);
+    });
+}
+
+function copyToClipboard(text) {
+    const tempInput = document.createElement('input');
+    tempInput.style.position = 'absolute';
+    tempInput.style.left = '-9999px';
+    tempInput.value = text;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand('copy');
+    document.body.removeChild(tempInput);
+    alert('URL copied to clipboard!');
 }
